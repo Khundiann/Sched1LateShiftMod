@@ -558,7 +558,7 @@ namespace LateShift
             bool hasHome = __instance.GetHome() != null;
 
             // catch cases: canwork, and either of isendofday but employeesalwayswork; or gethome==null but workWithoutBeds
-            if ((bool)Utils.CallMethod<Botanist>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
+            if ((bool)Utils.CallMethod<Employee>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
             {
                 // Bail if we're already working.
                 if (Utils.GetField<Botanist, BehaviourList>("_workBehaviours", __instance).Exists(Utils.ToPredicate((Behaviour b) => b.Active)))
@@ -800,7 +800,7 @@ namespace LateShift
             bool hasHome = __instance.GetHome() != null;
 
             // catch cases: canwork, and either of isendofday but employeesalwayswork; or gethome==null but noBeds            
-            if ((bool)Utils.CallMethod<Packager>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
+            if ((bool)Utils.CallMethod<Employee>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
             {
                 // Bail if we're currently working, or got fired.
                 if (__instance.PackagingBehaviour.Active ||  __instance.MoveItemBehaviour.Active || __instance.Fired)
@@ -883,10 +883,10 @@ namespace LateShift
             bool hasHome = __instance.GetHome() != null;
 
             // catch cases: canwork, and either of isendofday but employeesalwayswork; or gethome==null but noBeds            
-            if ((bool)Utils.CallMethod<Chemist>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
+            if ((bool)Utils.CallMethod<Employee>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
             {
                 // Bail if we're currently working, or got fired, or we aren't the server.
-                if ((bool)Utils.CallMethod<Chemist>("AnyWorkInProgress", __instance) || __instance.Fired || !InstanceFinder.IsServer)
+                if ((bool)Utils.CallMethod<Chemist>("IsAnyWorkInProgress", __instance) || __instance.Fired || !InstanceFinder.IsServer)
                 {
                     return;
                 }
@@ -921,10 +921,10 @@ namespace LateShift
             bool hasHome = __instance.GetHome() != null;
 
             // catch cases: canwork, and either of isendofday but employeesalwayswork; or gethome==null but noBeds            
-            if ((bool)Utils.CallMethod<Cleaner>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
+            if ((bool)Utils.CallMethod<Employee>("CanWork", __instance) && (isEndOfDay && employeesAlwaysWork || !hasHome && workWithoutBeds))
             {
                 // Bail if we're currently working, or got fired.
-                if ((bool)Utils.CallMethod<Cleaner>("AnyWorkInProgress", __instance) || __instance.Fired)
+                if ((bool)Utils.CallMethod<Cleaner>("IsAnyWorkInProgress", __instance) || __instance.Fired)
                 {
                     return;
                 }

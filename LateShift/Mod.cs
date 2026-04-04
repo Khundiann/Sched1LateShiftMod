@@ -1,6 +1,6 @@
 ﻿using MelonLoader;
 
-[assembly: MelonInfo(typeof(LateShift.LateShiftMod), "LateShift", "1.1.0", "lasersquid", null)]
+[assembly: MelonInfo(typeof(LateShift.LateShiftMod), "LateShift", "1.1.1", "lasersquid", null)]
 [assembly: MelonGame("TVGS", "Schedule I")]
 
 namespace LateShift
@@ -34,3 +34,4 @@ namespace LateShift
 // todo
 // shrooms update - done
 // storage update (0.4.3) - done (phew) (v1.1.0)
+// weather update (0.4.4f10) and anniversary update (0.4.5f1) - done (v1.1.1)
